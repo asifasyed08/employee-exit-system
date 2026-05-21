@@ -1,11 +1,9 @@
+const path = require("path");
+
 const sqlite3 = require("sqlite3").verbose();
 
-const db = new sqlite3.Database("./database/exit_management.db", (err) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log("Connected to SQLite database");
-  }
-});
+const dbPath = path.join(__dirname, "database.sqlite");
+
+const db = new sqlite3.Database(dbPath);
 
 module.exports = db;
